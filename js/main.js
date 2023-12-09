@@ -8,7 +8,9 @@ let result2 = document.querySelector('.js__paragraph2');
 
 
 // variables
-const randomNumber = getRandomNumber(100);
+const maxNumber = 100
+
+const randomNumber = getRandomNumber(maxNumber);
 
 const numberValue = parseFloat(number.value);
 
@@ -20,15 +22,22 @@ function getRandomNumber(max) {
 }
 
 function handleClickButton(event) {
+    const numberValue = parseFloat(number.value);
     event.preventDefault;
-    if (randomNumber === numberValue) {
-        console.log(`El número es igual`);
+
+    debugger
+    if (numberValue > maxNumber) {
+        result1.innerHTML = 'Pista: El número debe estar entre 1 y 100.'
     }
-    else if (randomNumber > numberValue) {
-        console.log(`El número es mayor`);
+    else if (randomNumber === numberValue) {
+        result1.innerHTML = 'Has ganado campeona!!!'
+    }
+    else if (randomNumber > numberValue && randomNumber <= 100) {
+        result1.innerHTML = 'Pista: Demasiado bajo.'
     }
     else if (randomNumber < numberValue) {
-        console.log(`El número es menor`); 
+        result1.innerHTML = 'Pista: Demasiado alto.'
+
     }
 }
 
