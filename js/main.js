@@ -14,18 +14,24 @@ const randomNumber = getRandomNumber(maxNumber);
 
 const numberValue = parseFloat(number.value);
 
-console.log(number.value);
+let acc = 0;
 
 // funciones
 function getRandomNumber(max) {
     return Math.ceil(Math.random() * max);
 }
 
+function addClicks() {
+    acc = acc + 1;
+    result2.innerHTML = `Número de intentos: ${acc}`
+}
+
 function handleClickButton(event) {
     const numberValue = parseFloat(number.value);
     event.preventDefault;
 
-    debugger
+    addClicks();
+
     if (numberValue > maxNumber) {
         result1.innerHTML = 'Pista: El número debe estar entre 1 y 100.'
     }
@@ -39,7 +45,9 @@ function handleClickButton(event) {
         result1.innerHTML = 'Pista: Demasiado alto.'
 
     }
+    
 }
+
 
 // eventos
 button.addEventListener('click', handleClickButton);
@@ -48,4 +56,4 @@ button.addEventListener('click', handleClickButton);
 // código que se ejecuta al cargar la página
 console.log (`Mi número aleatorio es ${randomNumber}`)
 result1.innerHTML = `Pista: Escribe el número y dale a Prueba.`
-result2.innerHTML = `Número de intentos: `
+result2.innerHTML = `Número de intentos: ${acc}`
