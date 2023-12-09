@@ -26,34 +26,36 @@ function addClicks() {
     result2.innerHTML = `Número de intentos: ${acc}`
 }
 
-function handleClickButton(event) {
-    const numberValue = parseFloat(number.value);
-    event.preventDefault;
-
-    addClicks();
-
+function compareNumbers (){
+    const numberValue = parseInt(number.value);
     if (numberValue > maxNumber) {
         result1.innerHTML = 'Pista: El número debe estar entre 1 y 100.'
     }
     else if (randomNumber === numberValue) {
         result1.innerHTML = 'Has ganado campeona!!!'
     }
-    else if (randomNumber > numberValue && randomNumber <= 100) {
+    else if (randomNumber > numberValue) {
         result1.innerHTML = 'Pista: Demasiado bajo.'
     }
     else if (randomNumber < numberValue) {
         result1.innerHTML = 'Pista: Demasiado alto.'
-
     }
-    
+}
+
+function handleClickButton(event) {   
+    event.preventDefault;
+    addClicks();
+    compareNumbers();
 }
 
 
 // eventos
 button.addEventListener('click', handleClickButton);
 
+window.addEventListener('load', () => {
+    console.log (`Mi número aleatorio es ${randomNumber}`)
+    result1.innerHTML = `Pista: Escribe el número y dale a Prueba.`
+    result2.innerHTML = `Número de intentos: ${acc}`
+});
 
 // código que se ejecuta al cargar la página
-console.log (`Mi número aleatorio es ${randomNumber}`)
-result1.innerHTML = `Pista: Escribe el número y dale a Prueba.`
-result2.innerHTML = `Número de intentos: ${acc}`
